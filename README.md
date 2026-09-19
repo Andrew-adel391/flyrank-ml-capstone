@@ -24,7 +24,7 @@ Pages that rank well in organic search but fail to convert that visibility into 
 
 ## 2. Data
 
-- **Source:** FlyRank Internship Data Warehouse (`fact_content_daily_performance`), accessed via a gated Hugging Face dataset and aggregated with DuckDB.
+- **Source:** FlyRank Internship Data Warehouse (`fact_content_daily_performance`), accessed via a gated Hugging Face dataset and aggregated with DuckDB. 
 - **Date Window:** All months present in the warehouse slice used for this project (see the notebook's data-loading cell for the exact printed range).
 - **Exclusions:** Records with fewer than 100 total monthly impressions were dropped to stabilize click-through-rate estimates and remove low-volume noise.
 - **Leakage Controls:** Target-derived fields (`next_ctr`, `next_position`) were strictly excluded from the feature matrix; all features are built from month *t* to predict month *t+1*.
