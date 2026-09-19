@@ -37,7 +37,9 @@ Pages that rank well in organic search but fail to convert that visibility into 
 
 **Baseline heuristic:**
 
-$$\text{Baseline Score} = \frac{1}{\text{mean\_position}} \times (1 - \text{realized\_ctr})$$
+```
+baseline_score = (1 / mean_position) × (1 − realized_ctr)
+```
 
 The baseline is evaluated on the *exact same* holdout month, using the *exact same* underperformance definition as the ML model — this is what makes the head-to-head comparison in Section 4 fair rather than apples-to-oranges.
 
@@ -95,6 +97,6 @@ Content assets are prioritized by predicted opportunity score and exported as a 
 
 ---
 
-## 8. Acknowledgments & Data Credit  
+## 8. Acknowledgments & Data Credit
 
-This work uses data provided by [FlyRank](https://flyrank.ai).
+Built on the [FlyRank ML Internship dataset](https://flyrank.ai).
