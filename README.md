@@ -62,7 +62,9 @@ The baseline is evaluated on the *exact same* holdout month, using the *exact sa
 
 **Head-to-head:** the Random Forest model achieved higher Precision (0.78 vs 0.69) but lower Recall, F1-Score, and ROC-AUC than the baseline heuristic. In practice, this means the ML model's top-ranked flags are more reliable, but it misses a larger share of pages that genuinely go on to underperform — which the simpler heuristic catches.
 
-**Key feature drivers:** `mean_position` and `realized_ctr` are the primary predictive drivers, followed by `total_impressions` and `ga4_engagement_rate` (see `outputs/feature_importance.png` in the repo for the full chart).
+**Key feature drivers:** `mean_position` and `realized_ctr` are the primary predictive drivers, followed by `total_impressions` and `ga4_engagement_rate`.
+
+![Feature Importance](outputs/feature_importance.png)
 
 **Why the baseline held up:** the Random Forest's discrimination (ROC-AUC 0.87) is close to, and slightly below, the baseline heuristic's (0.88). This suggests the heuristic's simple formula already captures most of the usable signal in position and CTR, and further ML gains would likely require additional engineered features (e.g. multi-month trend/momentum signals) rather than model complexity alone.
 
@@ -90,7 +92,7 @@ Content assets are prioritized by predicted opportunity score and exported as a 
 ## 7. Reproducibility
 
 - **Environment:** `pip install duckdb pandas scikit-learn matplotlib numpy`
-- **Execution:** Run `notebooks/capstone.ipynb` (or `work/notebooks/capstone.ipynb`, depending on repo layout) top to bottom.
+- **Execution:** Run `capstone.ipynb` from the repo root, top to bottom.
 - **Random Seed:** Fixed at `42` across all model training steps.
 - **Data Token:** Configured via a DuckDB Hugging Face secret, read from the `HF_TOKEN` environment variable at runtime — never hardcoded in the notebook or committed to the repo.
 - **Full source:** [github.com/Andrew-adel391/flyrank-ml-internship](https://github.com/Andrew-adel391/flyrank-ml-internship) — all weekly assignment notebooks and this capstone notebook.
